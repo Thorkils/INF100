@@ -1,0 +1,52 @@
+/**
+* Fag: INF100
+* Oving: 2
+* Oppgave: 3
+* Dato: 27.08.2015
+*
+* Sporsmaal angaaende pizza.
+* @author Thorkil Schjodt
+*/
+
+import java.util.Scanner;
+
+public class Pizza {
+  public static void main ( String [] args ) {
+       
+    //setter tastatur som scanner
+    Scanner tastatur = new Scanner(System.in);    
+    
+    //Spor bruker hvor mange stykker pizzaen skal deles opp i 
+    System.out.println("A og B skal dele en pizza. Hvor mange stykker skal pizzaen deles i?");
+    int pizzaDeler = tastatur.nextInt();
+    
+    if(pizzaDeler == 0) //Hvis pizzaen deles opp i 0 stykker
+      System.out.println("Du maa dele opp pizzaen! Men vi forsetter uansett!");
+    
+    else if (pizzaDeler < 0) //Hvis pizzaen deles opp i mindre enn 0 stykker
+      System.out.println("Naa prøver du aa lure programmet! Men vi forsetter uansett!");
+    
+    
+    //Spør bruker hvor mange stykker A spiser
+    System.out.println("Hvor mange stykker spiser A?");
+    int aSpiser = tastatur.nextInt();
+    
+    
+    if (aSpiser == pizzaDeler) //Hvis A spiser hele pizzaen
+      System.out.println("A spiste hele pizzaen selv!");
+    
+    else if (aSpiser == 0) //Hvis A ikke spiser noe
+      System.out.println("A ga hele pizzaen til B. Naa var A snill.");
+    
+    else if (aSpiser < 0) //Hvis A prøver aa spise mindre enn 0 stykker
+      System.out.println("A spiste " + aSpiser + " stykker, som er et negativt tall. Det var godt gjort!");
+    
+    else if (aSpiser > pizzaDeler) //Hvis A spiser flere stykker enn det er
+      System.out.println("A spiste " + aSpiser + " stykker, mens det egentlig bare var " + pizzaDeler + " stykker.  Det var godt gjort!");
+    
+    else  //Hvis A spiser mer enn 1 stykke, men mindre enn alle stykkene                   
+    System.out.println("A spiste " + aSpiser + " stykker. Det er " + (pizzaDeler - aSpiser) + " stykker igjen til B");
+    
+    
+  }
+}
