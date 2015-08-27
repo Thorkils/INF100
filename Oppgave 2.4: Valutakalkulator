@@ -1,0 +1,51 @@
+/**
+* Fag: INF100
+* Øving: 2
+* Oppgave: 4
+* Dato: 27.08.2015
+*
+* Konverterer fra/til NOK/EUR
+* @author Thorkil Schjodt
+*/
+
+import java.util.Scanner;
+
+public class Valutakalkulator {
+  public static void main ( String [] args ) {
+       
+    //setter tastatur som scanner
+    Scanner tastatur = new Scanner(System.in);    
+    
+    //Ber bruker velge valuta
+    System.out.print("Dette programmet lar deg konvertere mellom ");
+    System.out.println("norske kroner (NOK) og euro (EUR). ");
+    System.out.print("Skriv 1 for aa konvertere NOK til EUR. Skriv 2 om du ");
+    System.out.println("onsker aa konvertere EUR til NOK:");
+    
+    //Henter brukers valg av valuta fra tastatur
+    int velgValuta = tastatur.nextInt();
+    
+    if(velgValuta == 1) {
+      System.out.println("Vennligst oppgi antall NOK"); //Ber bruker skrive antall valuta
+      double antallNOK = tastatur.nextDouble(); //Henter antall valuta
+      double nokTilEur = antallNOK / 9.38; //Konverterer
+      System.out.printf("%.2f NOK = %.2f EUR",antallNOK,nokTilEur); //Skriver ut med to desimaler
+    }
+    
+    else if(velgValuta == 2) {
+      System.out.println("Vennligst oppgi antall EUR"); //Ber bruker skrive antall valuta
+      double antallEUR = tastatur.nextDouble(); //Henter antall valuta
+      double eurTilNok = antallEUR * 9.38; //Konverterer
+      System.out.printf("%.2f EUR = %.2f NOK",antallEUR,eurTilNok); //Skriver ut med to desimaler
+    
+    }
+    
+    else 
+      System.out.println("Du skrev et ugyldig valg"); //Skriver ut dette ved ugyldig valg
+      
+    
+     
+    
+    
+  }
+}
