@@ -1,0 +1,32 @@
+/**
+* Fag: INF100
+* Oving: 2
+* Oppgave: 2
+* Dato: 27.08.2015
+*
+* Spor om navn og favorittmat og skriver dette ut.
+* @author Thorkil Schjodt
+*/
+
+import java.util.Scanner;
+
+public class Oving2 {
+  public static void main ( String [] args ) {
+       
+    //setter tastatur som scanner
+    Scanner tastatur = new Scanner(System.in);    
+    
+    //spør bruker om navn
+    System.out.println("Hei, hva heter du?");
+    
+    //setter variabel dittNavn
+    String dittNavn = tastatur.nextLine();
+    System.out.println("Hva er din yndlingsrett?");
+    
+    //setter variabel dittNavn
+    String dinRett = tastatur.nextLine();
+    System.out.println("Hei " + dittNavn + ". Kanskje du kunne ha " + dinRett + " til middag i dag.");
+    
+    
+  }
+}
