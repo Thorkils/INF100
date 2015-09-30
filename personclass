@@ -1,0 +1,57 @@
+/**
+ * Fag: INF100
+ * Oving: 4
+ * Oppgave: 2
+ * Dato: 29.09.2015
+ *
+ * Person 
+ * @author Thorkil Schjodt
+ */
+
+class Person2 
+{
+  
+  String navn; 
+  
+  
+  void settNavn(String personNavn) 
+  {
+    navn = personNavn;
+  }
+  
+  String hentNavn() 
+  {
+    return navn;
+  }
+  
+  
+  
+  public String toString() 
+  {
+    return ("Person " + navn);
+  }
+  
+}
+
+class Interesse2 
+{
+  
+  String interesse;
+  
+  void settInteresse(String personInteresse) 
+  {
+    interesse = personInteresse;
+  }
+  
+  String hentInteresse() 
+  {
+    return interesse;
+  }
+  
+  
+  
+  public String toString() 
+  {
+    return ("- Interesse:  " + interesse);
+  } 
+}
