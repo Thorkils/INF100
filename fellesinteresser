@@ -1,0 +1,253 @@
+/**
+ * Fag: INF100
+ * Oving: 4
+ * Oppgave: 2
+ * Dato: 29.09.2015
+ *
+ * Finne fellesinteresser for personer 
+ * @author Thorkil Schjodt
+ */
+
+
+import java.util.Scanner;
+
+public class fellesinteresser2 {
+  public static void main ( String [] args ) {
+    
+    
+    Person2[] personer = new Person2[3];    
+    Interesse2[] interesser = new Interesse2[12];
+    //setter tastatur som scanner
+    Scanner tastatur = new Scanner(System.in); 
+    
+    
+    System.out.println("Velkomen til fellesinteresser!");
+    
+//Spor bruker om verdier
+    for (int i = 0; i < 3; i++) { 
+      
+      
+      personer[i] = new Person2();
+      
+//Ber bruker skrive inn navn
+      
+      System.out.println("Oppgi navn paa person (opptil 3 personer), eller @ for avslutt: ");
+      String input = tastatur.nextLine();
+      
+      if (input.equals("@")) {
+        break;
+      }
+//Ber bruker skrive inn interesser naar navn er skrevet inn hvis ikke @   
+      
+      else {
+        
+        
+        personer[i].settNavn(input);
+        System.out.println("Oppgi interesse for " + personer[i].hentNavn() + " (opptil 4 interesser), eller @ for avbryt: ");
+        
+        input = tastatur.nextLine();
+        
+        if (input.equals("@")) {
+          break;
+        }
+        
+        else if (i == 0) {
+          
+          //Forste gjennomkjoring:
+          
+          for (int j = 0; j < 4 || input == "@"; j++) {
+            
+            interesser[j] = new Interesse2();
+            
+            if (j == 0) {
+              interesser[j].settInteresse(input);
+              input = tastatur.nextLine();
+              if (input.equals("@")) {
+                break;
+              }
+            }
+            
+            else if (j < 3){
+              interesser[j].settInteresse(input);
+              input = tastatur.nextLine();
+              if (input.equals("@")) {
+                break;
+              }
+            }
+            else {
+              interesser[j].settInteresse(input);
+            }
+          }
+        }
+        
+        //Andre gjennomkjoring:
+        
+        else if (i == 1) {
+          for (int j = 4; j < 8 || input == "@"; j++) {
+            
+            interesser[j] = new Interesse2();
+            
+            if (j == 4) {
+              interesser[j].settInteresse(input);
+              input = tastatur.nextLine();
+              if (input.equals("@")) {
+                break;
+              }
+            }
+            else if (j < 7) {
+              
+              interesser[j].settInteresse(input);
+              input = tastatur.nextLine();
+              if (input.equals("@")) {
+                break;
+              }
+            }
+            else {
+              interesser[j].settInteresse(input);
+            }
+          }
+        }
+        
+        //Tredje gjennomkjoring
+        
+        else if (i == 2) {
+          for (int j = 8; j < 12 || input == "@"; j++) {
+            
+            interesser[j] = new Interesse2();
+            
+            if (j == 8) {
+              interesser[j].settInteresse(input);
+              input = tastatur.nextLine();
+              if (input.equals("@")) {
+                break;
+              }
+            }
+            else if (j < 11) {
+              interesser[j].settInteresse(input);
+              input = tastatur.nextLine();
+              if (input.equals("@")) {
+                break;
+              }
+            }
+            else {
+              interesser[j].settInteresse(input);
+            }
+          }
+        }
+      }
+    }
+    
+    //Utskrift 1
+    for (int k = 0; k < 3; k++) {
+      
+      
+      if (personer[k].hentNavn() == (null)){
+        break;
+      }
+      
+      else {
+        if (k == 0) {
+          System.out.println(personer[k]);
+          
+          for (int l = 0; l < 4; l++){
+            if (interesser[l] != null) {
+              System.out.println(interesser[l]);
+            }
+            else {
+              continue;
+            }
+          }
+        }
+        else if (k == 1) {
+          System.out.println(personer[k]);
+          
+          for (int l = 4; l < 8; l++){
+            if (interesser[l] != null) {
+              System.out.println(interesser[l]);
+            } 
+          }
+        }
+        else if (k == 2) {
+          System.out.println(personer[k]);
+          
+          for (int l = 8; l < 12; l++){
+            if (interesser[l] != null) {
+              System.out.println(interesser[l]);
+            }
+          }
+        } 
+      }
+    }
+    
+    int fellesAnt01 = 0;
+    int fellesAnt02 = 0;
+    int fellesAnt12 = 0; 
+    
+    
+    
+    System.out.println("Personer " + personer[0].hentNavn() + " og " + personer[1].hentNavn());
+    System.out.print("-til felles: ");
+    for (int m = 4; m < 8; m++) {
+      for (int teller = 0; teller < 4; teller++){
+        if (interesser[teller].hentInteresse().equals(interesser[m].hentInteresse())) {
+          fellesAnt01++;
+          System.out.print(interesser[teller].hentInteresse() + ", ");
+        }
+        else continue;
+      }
+    }
+    if (fellesAnt01 == 1) {
+      System.out.println("(" + fellesAnt01 + " fellesinteresser)");
+    }
+    else if (fellesAnt01 > 1) {
+      System.out.println("(" + fellesAnt01 + " fellesinteresser)");
+    }
+    else {
+      System.out.println("Ingen fellesinteresse funnet");
+    }
+    
+    System.out.println("Personer " + personer[0].hentNavn() + " og " + personer[2].hentNavn());
+    System.out.print("-til felles: ");
+    for (int m = 8; m < 12; m++) {
+      for (int teller = 0; teller < 4 ; teller++){
+        if (interesser[teller].hentInteresse().equals(interesser[m].hentInteresse())) {
+          fellesAnt02++;
+          System.out.print(interesser[teller].hentInteresse() + ", ");
+        }
+      }
+    }
+    if (fellesAnt02 == 1) {
+      System.out.println("(" + fellesAnt01 + " fellesinteresser)");
+    }
+    else if (fellesAnt02 > 1) {
+      System.out.println("(" + fellesAnt01 + " fellesinteresser)");
+    }
+    else {
+      System.out.println("Ingen fellesinteresse funnet");
+    }
+    
+    System.out.println("Personer " + personer[1].hentNavn() + " og " + personer[2].hentNavn());
+    System.out.print("-til felles: ");
+    for (int m = 8; m < 12; m++) {
+      for (int teller = 4; teller < 8; teller++){
+        if (interesser[teller].hentInteresse().equals(interesser[m].hentInteresse())) {
+          fellesAnt12++;
+          System.out.print(interesser[teller].hentInteresse() + ", ");
+        }
+      }
+    }
+    if (fellesAnt12 == 1) {
+      System.out.println("(" + fellesAnt01 + " fellesinteresser)");
+    }
+    else if (fellesAnt12 > 1) {
+      System.out.println("(" + fellesAnt01 + " fellesinteresser)");
+    }
+    else {
+      System.out.println("Ingen fellesinteresse funnet");
+    }
+    
+  }
+}
+
+
+
